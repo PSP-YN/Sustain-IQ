@@ -1,0 +1,18 @@
+import type { Metadata } from "next";
+import "./globals.css";
+const siteUrl=process.env.NEXT_PUBLIC_SITE_URL||"https://sustain-iq.vercel.app";
+export const metadata:Metadata={
+ metadataBase:new URL(siteUrl),
+ title:"SUSTAINIQ 2026 | Build. Solve. Sustain. — 24-Hour Hackathon",
+ description:"Build solutions for a more sustainable future at SUSTAINIQ 2026, a 24-hour national-level student hackathon at VVCE, Mysuru on 3–4 December 2026. Teams of 3–4. ₹75,000 prize pool.",
+ keywords:["SUSTAINIQ 2026","hackathon Mysuru","Karnataka hackathon","24 hour hackathon","VVCE hackathon","student hackathon India","sustainability hackathon"],
+ alternates:{canonical:"/"},
+ openGraph:{title:"SUSTAINIQ 2026 — Build. Solve. Sustain.",description:"A 24-hour build experience for a more sustainable future. 3–4 December 2026 · VVCE, Mysuru.",type:"website",locale:"en_IN",siteName:"SUSTAINIQ 2026",images:[{url:"/og-sustainiq.svg",width:1200,height:630,alt:"SUSTAINIQ 2026 — Build. Solve. Sustain."}]},
+ twitter:{card:"summary_large_image",title:"SUSTAINIQ 2026",description:"Build. Solve. Sustain. 3–4 December 2026 · VVCE, Mysuru.",images:["/og-sustainiq.svg"]},
+ robots:{index:true,follow:true}
+};
+export default function RootLayout({children}:{children:React.ReactNode}){
+ const eventJsonLd={"@context":"https://schema.org","@type":"Event","name":"SUSTAINIQ 2026","description":"A 24-hour national-level student hackathon focused on building solutions for a sustainable future.","startDate":"2026-12-03","endDate":"2026-12-04","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Sports Complex, VVCE","address":{"@type":"PostalAddress","streetAddress":"Vidyavardhaka College of Engineering","addressLocality":"Mysuru","addressRegion":"Karnataka","addressCountry":"IN"}},"organizer":{"@type":"Organization","name":"Civil Department Association, VVCE"},"offers":{"@type":"Offer","price":"999","priceCurrency":"INR","availability":"https://schema.org/LimitedAvailability","url":siteUrl},"isAccessibleForFree":false,"inLanguage":"en-IN"};
+ const faqJsonLd={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who can participate in SUSTAINIQ 2026?","acceptedAnswer":{"@type":"Answer","text":"Students from all departments and institutions can participate in teams of 3–4 members."}},{"@type":"Question","name":"When and where is SUSTAINIQ 2026?","acceptedAnswer":{"@type":"Answer","text":"SUSTAINIQ 2026 takes place on 3–4 December 2026 at the Sports Complex, Vidyavardhaka College of Engineering, Mysuru, Karnataka."}},{"@type":"Question","name":"Is accommodation provided?","acceptedAnswer":{"@type":"Answer","text":"Accommodation is not provided. Participants should arrange their own stay and travel."}},{"@type":"Question","name":"Is food provided during the hackathon?","acceptedAnswer":{"@type":"Answer","text":"Food will be provided during the event."}},{"@type":"Question","name":"What is the SUSTAINIQ 2026 team registration fee?","acceptedAnswer":{"@type":"Answer","text":"The event brochure lists a team registration fee of ₹999. Participants should confirm payment instructions on the official registration platform."}}]};
+ return <html lang="en"><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(eventJsonLd)}}/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqJsonLd)}}/></body></html>;
+}
