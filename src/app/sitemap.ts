@@ -1,2 +1,2 @@
 import type { MetadataRoute } from "next";
-export default function sitemap():MetadataRoute.Sitemap{return [{url:process.env.NEXT_PUBLIC_SITE_URL||"https://sustain-iq.vercel.app",lastModified:new Date(),changeFrequency:"weekly",priority:1}];}
+export default function sitemap():MetadataRoute.Sitemap{return [{url:process.env.NEXT_PUBLIC_SITE_URL||"https://sustain-iq-psp-adb0.vercel.app",lastModified:new Date(),changeFrequency:"weekly",priority:1}];}

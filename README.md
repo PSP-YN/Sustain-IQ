@@ -5,7 +5,7 @@ Responsive, frontend-only event website for SUSTAINIQ 2026, hosted by the Civil 
 ## Stack
 - Next.js App Router + TypeScript
 - Tailwind CSS 4 + custom responsive design system
-- React Three Fiber + Three.js + Drei for the 3D hero world
+- React Three Fiber + Three.js + Drei for the full-page animated voxel world background
 - Lucide icons
 
 ## Run locally

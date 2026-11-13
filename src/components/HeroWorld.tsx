@@ -1,20 +1,52 @@
 "use client";
+import { useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Sparkles } from "@react-three/drei";
-import { useRef } from "react";
+import { Float } from "@react-three/drei";
 import * as THREE from "three";
-function Tree({position,scale=1}:{position:[number,number,number];scale?:number}) {
- return <group position={position} scale={scale}><mesh position={[0,.28,0]} castShadow><cylinderGeometry args={[.045,.07,.58,5]}/><meshStandardMaterial color="#684b2f" roughness={1}/></mesh><mesh position={[0,.72,0]} castShadow><coneGeometry args={[.32,.72,6]}/><meshStandardMaterial color="#2d6b49" roughness={.9}/></mesh><mesh position={[0,1.02,0]} castShadow><coneGeometry args={[.23,.58,6]}/><meshStandardMaterial color="#47865a" roughness={.9}/></mesh></group>;
+
+type Block = { x:number; y:number; z:number; s?:number };
+function InstancedBlocks({ blocks, color, roughness=1 }: { blocks:Block[]; color:string; roughness?:number }) {
+ const ref=useRef<THREE.InstancedMesh>(null);
+ const dummy=useMemo(()=>new THREE.Object3D(),[]);
+ useEffect(()=>{ if(!ref.current)return; blocks.forEach((b,i)=>{dummy.position.set(b.x,b.y,b.z);dummy.scale.setScalar(b.s??1);dummy.updateMatrix();ref.current!.setMatrixAt(i,dummy.matrix);});ref.current.instanceMatrix.needsUpdate=true; },[blocks,dummy]);
+ return <instancedMesh ref={ref} args={[undefined,undefined,blocks.length]} castShadow receiveShadow><boxGeometry args={[1,1,1]}/><meshStandardMaterial color={color} roughness={roughness}/></instancedMesh>;
 }
-function Island() {
- const group=useRef<THREE.Group>(null);
- useFrame((state,delta)=>{if(group.current){group.current.rotation.y+=delta*.055;group.current.position.y=Math.sin(state.clock.elapsedTime*.45)*.10;}});
- const trees:[number,number,number][]=[[-1.35,.38,.4],[-.7,.38,-.65],[.25,.38,.35],[1.05,.38,-.35],[.65,.38,.85],[-.25,.38,1.05]];
- return <group ref={group} rotation={[.04,-.45,0]}><mesh receiveShadow castShadow><cylinderGeometry args={[2.25,1.48,.7,7,1]}/><meshStandardMaterial color="#806344" roughness={1}/></mesh><mesh position={[0,.37,0]} receiveShadow><cylinderGeometry args={[2.24,2.24,.12,7]}/><meshStandardMaterial color="#8ab66a" roughness={1}/></mesh><mesh position={[0,.46,0]}><cylinderGeometry args={[1.1,1.1,.035,32]}/><meshStandardMaterial color="#a9c982" roughness={.8}/></mesh>{trees.map((p,i)=><Tree key={i} position={p} scale={i%2===0?1:.82}/>)}</group>;
+function VoxelTerrain(){
+ const {grass,dirt,stone,wood,leaves,clouds}=useMemo(()=>{
+  const grass:Block[]=[],dirt:Block[]=[],stone:Block[]=[],wood:Block[]=[],leaves:Block[]=[],clouds:Block[]=[];
+  const height=(x:number,z:number)=>Math.floor(1.3+Math.sin(x*.19)*1.2+Math.cos(z*.17)*.9+Math.sin((x+z)*.11)*.8);
+  for(let x=-20;x<=20;x++)for(let z=-20;z<=20;z++){
+   const h=height(x,z);grass.push({x,y:h,z});
+   for(let y=1;y<h;y++)dirt.push({x,y,z});
+   if(h<1)stone.push({x,y:0,z});
+   const hash=Math.sin(x*12.9898+z*78.233)*43758.5453;const forest=hash-Math.floor(hash);
+   if(forest>.78 && Math.abs(x)>4 && Math.abs(z)>3){
+    const trunkH=3+(Math.abs(Math.floor(forest*10))%2);
+    for(let t=1;t<=trunkH;t++)wood.push({x,y:h+t,z});
+    for(let dx=-1;dx<=1;dx++)for(let dz=-1;dz<=1;dz++)for(let dy=0;dy<=2;dy++)if(Math.abs(dx)+Math.abs(dz)+dy<4 && !(dx===0&&dz===0&&dy===0))leaves.push({x:x+dx,y:h+trunkH+dy,z:z+dz});
+   }
+  }
+  for(let m=-2;m<=2;m++){const mx=m*9,mz=-25-(Math.abs(m)%2)*5,mh=7+(Math.abs(m)%3)*2;for(let y=0;y<mh;y++)for(let dx=-Math.max(1,mh-y);dx<=Math.max(1,mh-y);dx++)for(let dz=-Math.max(1,mh-y);dz<=Math.max(1,mh-y);dz++)stone.push({x:mx+dx,y:y-1,z:mz+dz});}
+  for(let i=0;i<12;i++){const x=(i*17)%36-18,z=(i*23)%34-17,y=13+(i%4)*2;for(let dx=0;dx<5+(i%3);dx++)clouds.push({x:x+dx,y,z,s:1.3});}
+  return {grass,dirt,stone,wood,leaves,clouds};
+ },[]);
+ const world=useRef<THREE.Group>(null);
+ useFrame((state)=>{if(world.current)world.current.rotation.y=Math.sin(state.clock.elapsedTime*.025)*.018;});
+ return <group ref={world}>
+  <InstancedBlocks blocks={grass} color="#4f9b38"/><InstancedBlocks blocks={dirt} color="#80502d"/><InstancedBlocks blocks={stone} color="#73766e"/><InstancedBlocks blocks={wood} color="#9a6335"/><InstancedBlocks blocks={leaves} color="#3d9b36"/><InstancedBlocks blocks={clouds} color="#d9ead1"/>
+  <mesh rotation={[-Math.PI/2,0,0]} position={[0,-.8,0]} receiveShadow><planeGeometry args={[200,200]}/><meshStandardMaterial color="#1b471b"/></mesh>
+ </group>;
 }
-function World() {
+function World(){
  const sun=useRef<THREE.Mesh>(null);
- useFrame(s=>{if(sun.current)sun.current.position.y=2.5+Math.sin(s.clock.elapsedTime*.25)*.08;});
- return <><ambientLight intensity={1.5}/><directionalLight position={[4,7,5]} intensity={2.2} castShadow shadow-mapSize={[1024,1024]}/><pointLight position={[-4,2,-3]} intensity={18} color="#e7b56b"/><mesh ref={sun} position={[2.7,2.5,-3]}><sphereGeometry args={[.55,32,32]}/><meshBasicMaterial color="#f4c879"/></mesh><mesh position={[0,-1.65,0]} rotation={[-Math.PI/2,0,0]} receiveShadow><planeGeometry args={[200,200]}/><meshStandardMaterial color="#203e36" roughness={1}/></mesh><Island/><Float speed={1.2} rotationIntensity={.15} floatIntensity={.3}><mesh position={[-2.3,1.35,.2]}><dodecahedronGeometry args={[.16,0]}/><meshStandardMaterial color="#d4b978"/></mesh></Float><Float speed={.9} rotationIntensity={.2} floatIntensity={.4}><mesh position={[2.15,.55,.2]}><octahedronGeometry args={[.13,0]}/><meshStandardMaterial color="#8bbd8c"/></mesh></Float><Sparkles count={65} scale={7} size={2} speed={.25} color="#d7e8b5" opacity={.5}/></>;
+ useFrame(s=>{if(sun.current)sun.current.position.x=18+Math.sin(s.clock.elapsedTime*.08)*1.5;});
+ return <>
+  <fog attach="fog" args={["#8fc7df",35,95]}/>
+  <ambientLight intensity={1.15}/><directionalLight position={[18,28,12]} intensity={2.1} castShadow shadow-mapSize={[1024,1024]}/>
+  <mesh ref={sun} position={[18,24,-30]}><boxGeometry args={[5,5,5]}/><meshBasicMaterial color="#fff0a6"/></mesh>
+  <VoxelTerrain/>
+  <Float speed={.35} rotationIntensity={0} floatIntensity={.15}><mesh position={[-14,11,-9]}><boxGeometry args={[2,2,2]}/><meshStandardMaterial color="#d8e9d4"/></mesh></Float>
+  <Float speed={.25} rotationIntensity={0} floatIntensity={.12}><mesh position={[13,13,-18]}><boxGeometry args={[3,1.5,2]}/><meshStandardMaterial color="#d8e9d4"/></mesh></Float>
+ </>;
 }
-export default function HeroWorld(){return <Canvas camera={{position:[0,2.3,6.9],fov:39}} dpr={[1,1.6]} shadows gl={{alpha:true,antialias:true}}><World/></Canvas>;}
+export default function HeroWorld(){return <Canvas camera={{position:[0,19,42],fov:55}} dpr={[1,1.35]} shadows gl={{alpha:true,antialias:true}}><World/></Canvas>;}

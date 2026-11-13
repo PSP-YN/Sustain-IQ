@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#75b9d5"/><stop offset=".58" stop-color="#b9d99b"/><stop offset="1" stop-color="#5b9b48"/></linearGradient>
+ <linearGradient id="shade" x2="0" y2="1"><stop stop-color="#0c2812" stop-opacity=".08"/><stop offset=".55" stop-color="#0c2812" stop-opacity=".12"/><stop offset="1" stop-color="#0b220e" stop-opacity=".7"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<rect x="1190" y="105" width="116" height="116" fill="#ffe69a" opacity=".94"/><rect x="1205" y="120" width="86" height="86" fill="#fff1b8" opacity=".45"/>
+<g fill="#e7f0d8" opacity=".9"><path d="M140 150h80v-24h80v24h55v45h-215zM980 105h100v-25h120v25h60v55H980zM510 220h80v-25h95v25h55v38H510z"/><path d="M230 130h70v-20h45v20h45v35H230zM1060 80h90v-18h80v18h35v40h-205z" opacity=".65"/></g>
+<!-- far block mountains -->
+<path fill="#789d67" d="M0 510V420h90v-50h70v-80h75v-70h65v55h65v80h70v55h80v-85h70v-75h70v-60h70v60h70v70h75v70h65v-55h80v-75h75v-65h75v75h70v65h80v-50h80v-65h80v125h75v110z"/>
+<path fill="#5c8950" d="M0 525V460h90v-40h70v-65h75v-55h65v55h65v45h70v60h80v-60h70v-55h70v-45h70v50h70v55h75v60h65v-40h80v-60h75v-45h75v50h70v55h80v-35h80v-55h80v100h75v80z"/>
+<!-- block forest canopy -->
+<g fill="#2f7330"><path d="M60 560V410h55V360h60v50h55v150zM240 560V380h50v-65h75v65h55v180zM440 560V415h55v-70h75v70h50v145zM670 560V390h60v-75h75v75h60v170zM930 560V410h55v-65h80v65h55v150zM1150 560V365h60v-75h85v75h60v195zM1390 560V405h55v-65h80v65h45v155z"/></g>
+<g fill="#48933b"><path d="M75 425h80v-55h60v55h55v95H75zM255 405h70v-55h65v55h55v105H255zM455 440h65v-55h65v55h50v80H455zM685 415h75v-55h70v55h55v105H685zM945 435h70v-55h75v55h55v85H945zM1165 390h75v-55h75v55h55v120h-205zM1405 430h65v-55h70v55h35v85h-170z"/></g>
+<!-- trunks -->
+<g fill="#79502e"><rect x="135" y="510" width="26" height="110"/><rect x="315" y="500" width="26" height="120"/><rect x="495" y="515" width="24" height="105"/><rect x="745" y="505" width="28" height="115"/><rect x="1000" y="510" width="28" height="110"/><rect x="1240" y="500" width="28" height="120"/><rect x="1465" y="510" width="25" height="110"/></g>
+<!-- stepped grass blocks -->
+<path fill="#397f2d" d="M0 610h1600v290H0z"/><path fill="#5caa3d" d="M0 610h1600v42H0z"/><path fill="#438e32" d="M0 652h1600v248H0z"/>
+<g fill="#80502d"><path d="M0 700h220v90H0zM300 670h260v115H300zM650 710h250v100H650zM1020 675h260v120h-260zM1370 705h230v100h-230z"/></g>
+<g fill="#a36b39"><path d="M0 700h220v22H0zM300 670h260v24H300zM650 710h250v22H650zM1020 675h260v24h-260zM1370 705h230v22h-230z"/></g>
+<g fill="#6ab84a"><path d="M0 610h1600v20H0zM0 650h240v20H0zM560 650h350v20H560zM1280 650h320v20h-320z"/></g>
+<!-- flowers / grass pixels -->
+<g><rect x="180" y="590" width="9" height="28" fill="#2e6e2d"/><rect x="174" y="582" width="20" height="9" fill="#f4d56b"/><rect x="590" y="600" width="8" height="24" fill="#2e6e2d"/><rect x="584" y="592" width="18" height="9" fill="#f4d56b"/><rect x="1340" y="592" width="8" height="28" fill="#2e6e2d"/><rect x="1334" y="584" width="20" height="9" fill="#f4d56b"/></g>
+<rect width="1600" height="900" fill="url(#shade)"/>
+</svg>

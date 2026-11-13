@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-const siteUrl=process.env.NEXT_PUBLIC_SITE_URL||"https://sustain-iq.vercel.app";
+const siteUrl=process.env.NEXT_PUBLIC_SITE_URL||"https://sustain-iq-psp-adb0.vercel.app";
 export const metadata:Metadata={
  metadataBase:new URL(siteUrl),
  title:"SUSTAINIQ 2026 | Build. Solve. Sustain. — 24-Hour Hackathon",
