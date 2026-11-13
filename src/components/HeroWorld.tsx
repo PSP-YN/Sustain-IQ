@@ -33,8 +33,8 @@ function VoxelTerrain(){
  const world=useRef<THREE.Group>(null);
  useFrame((state)=>{if(world.current)world.current.rotation.y=Math.sin(state.clock.elapsedTime*.025)*.018;});
  return <group ref={world}>
-  <InstancedBlocks blocks={grass} color="#4f9b38"/><InstancedBlocks blocks={dirt} color="#80502d"/><InstancedBlocks blocks={stone} color="#73766e"/><InstancedBlocks blocks={wood} color="#9a6335"/><InstancedBlocks blocks={leaves} color="#3d9b36"/><InstancedBlocks blocks={clouds} color="#d9ead1"/>
-  <mesh rotation={[-Math.PI/2,0,0]} position={[0,-.8,0]} receiveShadow><planeGeometry args={[200,200]}/><meshStandardMaterial color="#1b471b"/></mesh>
+  <InstancedBlocks blocks={grass} color="#55c83b"/><InstancedBlocks blocks={dirt} color="#a96a36"/><InstancedBlocks blocks={stone} color="#9aa7a4"/><InstancedBlocks blocks={wood} color="#b8793c"/><InstancedBlocks blocks={leaves} color="#28a83b"/><InstancedBlocks blocks={clouds} color="#f0fff0"/>
+  <mesh rotation={[-Math.PI/2,0,0]} position={[0,-.8,0]} receiveShadow><planeGeometry args={[200,200]}/><meshStandardMaterial color="#267b2d"/></mesh>
  </group>;
 }
 function World(){
@@ -42,8 +42,8 @@ function World(){
  useFrame(s=>{if(sun.current)sun.current.position.x=18+Math.sin(s.clock.elapsedTime*.08)*1.5;});
  return <>
   <fog attach="fog" args={["#8fc7df",35,95]}/>
-  <ambientLight intensity={1.15}/><directionalLight position={[18,28,12]} intensity={2.1} castShadow shadow-mapSize={[1024,1024]}/>
-  <mesh ref={sun} position={[18,24,-30]}><boxGeometry args={[5,5,5]}/><meshBasicMaterial color="#fff0a6"/></mesh>
+  <ambientLight intensity={1.55}/><directionalLight position={[18,28,12]} intensity={2.8} castShadow shadow-mapSize={[1024,1024]}/>
+  <mesh ref={sun} position={[18,24,-30]}><boxGeometry args={[5,5,5]}/><meshBasicMaterial color="#fff36b"/></mesh>
   <VoxelTerrain/>
   <Float speed={.35} rotationIntensity={0} floatIntensity={.15}><mesh position={[-14,11,-9]}><boxGeometry args={[2,2,2]}/><meshStandardMaterial color="#d8e9d4"/></mesh></Float>
   <Float speed={.25} rotationIntensity={0} floatIntensity={.12}><mesh position={[13,13,-18]}><boxGeometry args={[3,1.5,2]}/><meshStandardMaterial color="#d8e9d4"/></mesh></Float>
