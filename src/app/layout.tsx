@@ -7,8 +7,8 @@ export const metadata:Metadata={
  description:"Build solutions for a more sustainable future at SUSTAINIQ 2026, a 24-hour national-level student hackathon at VVCE, Mysuru on 3–4 December 2026. Teams of 3–4. ₹75,000 prize pool.",
  keywords:["SUSTAINIQ 2026","hackathon Mysuru","Karnataka hackathon","24 hour hackathon","VVCE hackathon","student hackathon India","sustainability hackathon"],
  alternates:{canonical:"/"},
- openGraph:{title:"SUSTAINIQ 2026 — Build. Solve. Sustain.",description:"A 24-hour build experience for a more sustainable future. 3–4 December 2026 · VVCE, Mysuru.",type:"website",locale:"en_IN",siteName:"SUSTAINIQ 2026",images:[{url:"/og-sustainiq.svg",width:1200,height:630,alt:"SUSTAINIQ 2026 — Build. Solve. Sustain."}]},
- twitter:{card:"summary_large_image",title:"SUSTAINIQ 2026",description:"Build. Solve. Sustain. 3–4 December 2026 · VVCE, Mysuru.",images:["/og-sustainiq.svg"]},
+ openGraph:{title:"SUSTAINIQ 2026 — Build. Solve. Sustain.",description:"A 24-hour build experience for a more sustainable future. 3–4 December 2026 · VVCE, Mysuru.",type:"website",locale:"en_IN",siteName:"SUSTAINIQ 2026",images:[{url:"/og-sustainiq.png",width:1200,height:630,alt:"SUSTAINIQ 2026 — Build. Solve. Sustain."}]},
+ twitter:{card:"summary_large_image",title:"SUSTAINIQ 2026",description:"Build. Solve. Sustain. 3–4 December 2026 · VVCE, Mysuru.",images:["/og-sustainiq.png"]},
  robots:{index:true,follow:true}
 };
 export default function RootLayout({children}:{children:React.ReactNode}){
