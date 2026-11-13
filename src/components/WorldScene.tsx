@@ -4,12 +4,16 @@ import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 
 const HeroWorld = dynamic(() => import("./HeroWorld"), { ssr: false, loading: () => <div className="world-loading" /> });
-const biomes = ["/minecraft/jungle.webp", "/minecraft/mountains.webp", "/minecraft/taiga.webp"];
+const biomes = ["/minecraft/4k/jungle-uhd.webp", "/minecraft/4k/mountains-uhd.webp", "/minecraft/4k/taiga-uhd.webp"];
 
 export default function WorldScene() {
   const [activeBiome, setActiveBiome] = useState(0);
   const stackRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef(0);
+
+  useEffect(() => {
+    biomes.forEach((src) => { const image = new Image(); image.decoding = "async"; image.src = src; });
+  }, []);
 
   useEffect(() => {
     let frame = 0;

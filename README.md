@@ -30,7 +30,7 @@ Four challenge domains are planned; official domain names are not yet published.
 - Responsive glassmorphism UI, high-contrast typography, keyboard-friendly anchor navigation and reduced-motion CSS support.
 - The 3D canvas is transparent and layered over the gameplay imagery; the screenshots remain the primary world background.
 
-The source gameplay images are 1,920×960 (jungle and taiga) and 1,266×788 (mountain). The jungle image is cropped to remove the in-game HUD; all three are brightness/contrast adjusted and delivered as optimized WebP. They are not native 4K source files. 4K display output does not create additional source detail.
+The deployed biome backgrounds are 3,840×2,160 (UHD/4K canvas) optimized WebP derivatives. They are resampled from original gameplay screenshots (jungle 1,920×790 after HUD crop; taiga 1,920×960; mountains 1,266×788), with a blurred background extension to preserve the complete source frame in a 16:9 composition. Brightness, contrast and sharpening are tuned for the brighter world treatment. These are **upscaled 4K-dimension assets, not native 4K captures or AI-restored detail**; upscaling cannot invent authentic fine texture. See [docs/ASSETS.md](docs/ASSETS.md) for attribution and the full resolution disclosure.
 
 ## Stack
 
