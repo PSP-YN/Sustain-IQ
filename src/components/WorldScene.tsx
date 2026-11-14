@@ -1,67 +1,68 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
 
-const HeroWorld = dynamic(() => import("./HeroWorld"), {
-  ssr: false,
-  loading: () => <div className="world-loading" />,
-});
-
-const biomes = [
-  "/minecraft/4k/jungle-uhd.webp",
-  "/minecraft/4k/mountains-uhd.webp",
-  "/minecraft/4k/taiga-uhd.webp",
-];
+const VIDEO_SRC = "/minecraft/videos/world-journey.mp4";
 
 export default function WorldScene() {
-  const stackRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const preloaded: HTMLImageElement[] = biomes.map((src) => {
-      const image = new Image();
-      image.decoding = "async";
-      image.src = src;
-      return image;
-    });
+    const video = videoRef.current;
+    if (!video) return;
 
     let frame = 0;
-    const update = () => {
+    let disposed = false;
+    let initialized = false;
+
+    const syncToScroll = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
+        if (disposed || !video || !Number.isFinite(video.duration) || video.duration <= 0) return;
         const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
         const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
-        // Adjacent layers overlap continuously; their opacity weights sum to one.
-        const blendPosition = progress * (biomes.length - 1);
-        const photos = stackRef.current?.querySelectorAll<HTMLElement>(".minecraft-photo");
-        photos?.forEach((photo, index) => {
-          const weight = Math.max(0, 1 - Math.abs(blendPosition - index));
-          photo.style.opacity = weight.toFixed(3);
-          photo.style.transform = `scale(${1.055 + progress * 0.045}) translate3d(0, ${progress * -1.5}%, 0)`;
-        });
+        const targetTime = progress * Math.max(0, video.duration - 0.04);
+
+        // Seek only when the target has moved by more than one 24fps frame.
+        // This keeps the footage tied to page position in both scroll directions.
+        if (!initialized) {
+          video.currentTime = Math.min(targetTime + 0.02, Math.max(0, video.duration - 0.02));
+          initialized = true;
+        } else if (Math.abs(video.currentTime - targetTime) > 1 / 24) {
+          video.currentTime = targetTime;
+        }
       });
     };
 
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
+    const onMetadata = () => syncToScroll();
+    video.addEventListener("loadedmetadata", onMetadata);
+    window.addEventListener("scroll", syncToScroll, { passive: true });
+    window.addEventListener("resize", syncToScroll);
+    syncToScroll();
+
     return () => {
+      disposed = true;
       cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-      preloaded.forEach((image) => { image.src = ""; });
+      video.removeEventListener("loadedmetadata", onMetadata);
+      window.removeEventListener("scroll", syncToScroll);
+      window.removeEventListener("resize", syncToScroll);
     };
   }, []);
 
   return (
     <div className="world-canvas" aria-hidden="true">
-      <div className="minecraft-photo-stack" ref={stackRef}>
-        {biomes.map((src) => (
-          <div key={src} className="minecraft-photo" style={{ backgroundImage: `url(${src})` }} />
-        ))}
-      </div>
+      <video
+        ref={videoRef}
+        className="minecraft-world-video"
+        src={VIDEO_SRC}
+        poster="/minecraft/4k/jungle-uhd.webp"
+        muted
+        playsInline
+        preload="auto"
+        disablePictureInPicture
+        tabIndex={-1}
+      />
       <div className="minecraft-photo-shade" />
-      <HeroWorld />
     </div>
   );
 }

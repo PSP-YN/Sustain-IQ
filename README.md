@@ -24,17 +24,15 @@ Four challenge domains are planned; official domain names are not yet published.
 
 ## Experience and interaction
 
-- A persistent, full-viewport 3D world layer sits behind the complete long-form page, not only the hero section.
-- The player follows the page scroll through a continuous world path. Scrolling upward reverses travel direction and smoothly turns the avatar before walking back.
-- Jungle, mountain and taiga gameplay backdrops blend continuously using scroll-weighted crossfades rather than discrete section-triggered image swaps.
-- Animated voxel companions populate the route: an engineer companion, cow, sheep, fox, wolf and flying parrot. Their head, arm, leg and hover motions are animated independently, with floating firefly particles along the route.
-- A scripted Herobrine cameo fades into the late-world sequence with glowing eyes and a subtle aura. It is an original stylized voxel approximation, not an official Minecraft model.
-- The transparent React Three Fiber canvas is layered over gameplay screenshots. The background remains visible through the page's translucent content panels.
+- A persistent, full-viewport recorded Minecraft gameplay video sits behind the complete long-form page.
+- Page scroll position scrubs the video timeline: scrolling down advances the footage and scrolling up reverses it, keeping the world journey tied to the page rather than running independently.
+- The background is the supplied `Minecraft_player_exploring_world_3723f312_1080p.mp4`, optimized as `public/minecraft/videos/world-journey.mp4` for browser delivery.
+- The video is muted, has no audio track in the optimized copy, and uses a static gameplay poster while the video initializes.
 - Responsive glass UI, high-contrast typography, keyboard-friendly anchor navigation and reduced-motion CSS support.
 
-The character and creatures are custom procedural voxel-inspired meshes built with Three.js primitives. They are not imported Minecraft entity models, game-engine animations, or official Mojang assets. Movement is a scroll-synchronized presentation animation; it is not a live Minecraft game simulation. The biome backdrops are separate gameplay screenshots and crossfade as a visual transition, not continuous generated 3D terrain.
+The procedural Three.js player, companion and Herobrine scene is no longer rendered. The moving characters, camera and environment visible in the background come from the supplied recorded video; this remains a website presentation, not an interactive Minecraft game session.
 
-The deployed biome backgrounds are 3,840×2,160 (UHD/4K canvas) optimized WebP derivatives. They are resampled from original gameplay screenshots (jungle 1,920×790 after HUD crop; taiga 1,920×960; mountains 1,266×788), with a center crop to fill the 16:9 frame edge-to-edge. Brightness, contrast and sharpening are tuned for the brighter world treatment. These are **upscaled 4K-dimension assets, not native 4K captures or AI-restored detail**; upscaling cannot invent authentic fine texture. See [docs/ASSETS.md](docs/ASSETS.md) for attribution and the full resolution disclosure.
+The source clip is 1,920×1,080 at 24 fps and approximately 14.93 seconds. The optimized web copy is H.264 MP4 at 1,920×1,080, 24 fps, with audio removed and fast-start metadata for progressive browser loading. It is not 4K footage.
 
 ## Stack
 

@@ -19,6 +19,10 @@ The deployed backdrop files in `public/minecraft/4k/` are each **3,840×2,160 pi
 **Important:** these are 4K-dimension upscales, not native 4K captures and not AI-super-resolution reconstructions. Upscaling cannot restore detail absent from the originals; fine textures may still look soft on large 4K displays. Files are optimized WebP for browser delivery. The original source screenshots remain in `public/minecraft/` for traceability.
 
 
-## Animated world actors
+## Recorded gameplay background
 
-The scroll world includes custom procedural voxel-inspired meshes for the player, a technical companion, cow, sheep, fox, wolf, parrot and a Herobrine-inspired cameo. These are original Three.js primitive assemblies with scripted gait, head movement, hovering, firefly particles and reveal animations. They are not imported game assets, official Minecraft models or captured game animations. The player and camera respond to scroll position; biome screenshot layers blend continuously based on the same scroll progress. This is a website presentation scene, not a playable Minecraft simulation.
+The page background now uses a user-supplied recorded Minecraft exploration video. The original source was provided locally as `Minecraft_player_exploring_world_3723f312_1080p.mp4`; the web-optimized derivative is `public/minecraft/videos/world-journey.mp4`.
+
+The source is 1,920×1,080, 24 fps and approximately 14.93 seconds. The optimized MP4 is H.264, 1,920×1,080 at 24 fps, with the audio track removed and MP4 fast-start metadata enabled. It is not native 4K. The browser keeps the video paused and seeks its timeline from document scroll progress, so reverse scrolling reverses the footage.
+
+The previous procedural Three.js player, animals, companion and Herobrine scene is no longer mounted. Any characters or movement in the current background are part of the supplied footage, not independently composited website models. The older UHD WebP screenshots remain in the repository as the video poster/fallback and for asset traceability; they are no longer crossfaded as the primary world journey.
