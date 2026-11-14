@@ -168,3 +168,33 @@ main{background:linear-gradient(180deg,rgba(8,45,35,.02),rgba(8,45,35,.06) 28%,r
 @media(prefers-reduced-motion:reduce){.minecraft-photo{transition:none!important}}
 .asset-credit{display:block;margin-top:8px;font:10px var(--body);letter-spacing:0;color:#d7f0db;opacity:.82}
 .asset-credit a{text-decoration:underline;text-underline-offset:3px}
+
+/* Continuous biome crossfade: scroll progress drives the overlap directly. */
+.minecraft-photo{transition:none!important;will-change:opacity,transform;}
+.minecraft-photo-stack{background:#78c5e8;}
+.world-canvas canvas{pointer-events:none;}
+.world-loading{background:linear-gradient(145deg,#73c8ec,#a8d58a 55%,#e3dba0);}
+@media(prefers-reduced-motion:reduce){.minecraft-photo{transform:none!important;}}
+
+/* Keep the terrain crisp behind the glass surfaces; avoid blurring whole page sections. */
+.intro,.domains,.journey,.prize-band,.essentials,.faq,.register{
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+}
+.domain-card,.journey-card,.prize-art,.essential,.register-stamp{
+  -webkit-backdrop-filter:blur(11px) saturate(1.35)!important;
+  backdrop-filter:blur(11px) saturate(1.35)!important;
+}
+.stats,.essentials-grid{
+  -webkit-backdrop-filter:blur(10px) saturate(1.35)!important;
+  backdrop-filter:blur(10px) saturate(1.35)!important;
+}
+.domain-card{background:linear-gradient(145deg,rgba(39,139,70,.48),rgba(10,72,57,.42))!important;}
+.domain-card:nth-child(2){background:linear-gradient(145deg,rgba(18,148,165,.52),rgba(8,65,88,.43))!important;}
+.domain-card:nth-child(3){background:linear-gradient(145deg,rgba(202,128,43,.54),rgba(100,56,25,.44))!important;}
+.domain-card:nth-child(4){background:linear-gradient(145deg,rgba(112,86,196,.5),rgba(51,43,113,.42))!important;}
+.journey-card{background:linear-gradient(145deg,rgba(28,125,71,.48),rgba(7,63,52,.43))!important;}
+.journey-card.featured{background:linear-gradient(145deg,rgba(206,153,43,.54),rgba(117,74,20,.45))!important;}
+.stats{background:rgba(7,46,39,.40)!important;}
+.essentials-grid{background:rgba(7,46,39,.42)!important;}
+.intro,.domains,.journey,.prize-band,.essentials,.faq{background:rgba(7,42,36,.22)!important;}

@@ -14,6 +14,11 @@ Reuse caveat: At the time these files were checked, their Commons pages displaye
 
 ## UHD derivatives and honest resolution disclosure
 
-The deployed backdrop files in `public/minecraft/4k/` are each **3,840×2,160 pixels (UHD/4K canvas)** and optimized WebP. They are derived from the original source screenshots: jungle 1,920×790 (HUD cropped), taiga 1,920×960, and mountains 1,266×788. The full source frame is retained as the foreground layer, with a softly blurred, cover-cropped extension behind it to fill the 16:9 canvas without stretching the gameplay image. Color, contrast and edge sharpness were adjusted during resampling.
+The deployed backdrop files in `public/minecraft/4k/` are each **3,840×2,160 pixels (UHD/4K canvas)** and optimized WebP. They are derived from the original source screenshots: jungle 1,920×790 (HUD cropped), taiga 1,920×960, and mountains 1,266×788. The source screenshot is center-cropped to a 16:9 composition and fills the entire canvas edge-to-edge. Color, contrast and edge sharpness were adjusted during resampling.
 
 **Important:** these are 4K-dimension upscales, not native 4K captures and not AI-super-resolution reconstructions. Upscaling cannot restore detail absent from the originals; fine textures may still look soft on large 4K displays. Files are optimized WebP for browser delivery. The original source screenshots remain in `public/minecraft/` for traceability.
+
+
+## Animated world actors
+
+The scroll world includes custom procedural voxel-inspired meshes for the player, a technical companion, cow, sheep, fox, wolf, parrot and a Herobrine-inspired cameo. These are original Three.js primitive assemblies with scripted gait, head movement, hovering, firefly particles and reveal animations. They are not imported game assets, official Minecraft models or captured game animations. The player and camera respond to scroll position; biome screenshot layers blend continuously based on the same scroll progress. This is a website presentation scene, not a playable Minecraft simulation.

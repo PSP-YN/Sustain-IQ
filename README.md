@@ -24,13 +24,17 @@ Four challenge domains are planned; official domain names are not yet published.
 
 ## Experience and interaction
 
-- Full-screen, scroll-responsive 3D player rendered with React Three Fiber / Three.js.
-- The player advances as the visitor scrolls down. Scrolling upward reverses travel direction; the avatar rotates to face the new direction before continuing.
-- Actual Minecraft gameplay screenshots are used as full-bleed biome backdrops. The backdrop changes through jungle, mountain and taiga scenes as the page progresses.
-- Responsive glassmorphism UI, high-contrast typography, keyboard-friendly anchor navigation and reduced-motion CSS support.
-- The 3D canvas is transparent and layered over the gameplay imagery; the screenshots remain the primary world background.
+- A persistent, full-viewport 3D world layer sits behind the complete long-form page, not only the hero section.
+- The player follows the page scroll through a continuous world path. Scrolling upward reverses travel direction and smoothly turns the avatar before walking back.
+- Jungle, mountain and taiga gameplay backdrops blend continuously using scroll-weighted crossfades rather than discrete section-triggered image swaps.
+- Animated voxel companions populate the route: an engineer companion, cow, sheep, fox, wolf and flying parrot. Their head, arm, leg and hover motions are animated independently, with floating firefly particles along the route.
+- A scripted Herobrine cameo fades into the late-world sequence with glowing eyes and a subtle aura. It is an original stylized voxel approximation, not an official Minecraft model.
+- The transparent React Three Fiber canvas is layered over gameplay screenshots. The background remains visible through the page's translucent content panels.
+- Responsive glass UI, high-contrast typography, keyboard-friendly anchor navigation and reduced-motion CSS support.
 
-The deployed biome backgrounds are 3,840×2,160 (UHD/4K canvas) optimized WebP derivatives. They are resampled from original gameplay screenshots (jungle 1,920×790 after HUD crop; taiga 1,920×960; mountains 1,266×788), with a blurred background extension to preserve the complete source frame in a 16:9 composition. Brightness, contrast and sharpening are tuned for the brighter world treatment. These are **upscaled 4K-dimension assets, not native 4K captures or AI-restored detail**; upscaling cannot invent authentic fine texture. See [docs/ASSETS.md](docs/ASSETS.md) for attribution and the full resolution disclosure.
+The character and creatures are custom procedural voxel-inspired meshes built with Three.js primitives. They are not imported Minecraft entity models, game-engine animations, or official Mojang assets. Movement is a scroll-synchronized presentation animation; it is not a live Minecraft game simulation. The biome backdrops are separate gameplay screenshots and crossfade as a visual transition, not continuous generated 3D terrain.
+
+The deployed biome backgrounds are 3,840×2,160 (UHD/4K canvas) optimized WebP derivatives. They are resampled from original gameplay screenshots (jungle 1,920×790 after HUD crop; taiga 1,920×960; mountains 1,266×788), with a center crop to fill the 16:9 frame edge-to-edge. Brightness, contrast and sharpening are tuned for the brighter world treatment. These are **upscaled 4K-dimension assets, not native 4K captures or AI-restored detail**; upscaling cannot invent authentic fine texture. See [docs/ASSETS.md](docs/ASSETS.md) for attribution and the full resolution disclosure.
 
 ## Stack
 
