@@ -23,6 +23,11 @@ The deployed backdrop files in `public/minecraft/4k/` are each **3,840×2,160 pi
 
 The page background now uses a user-supplied recorded Minecraft exploration video. The original source was provided locally as `Minecraft_player_exploring_world_3723f312_1080p.mp4`; the web-optimized derivative is `public/minecraft/videos/world-journey.mp4`.
 
-The source is 1,920×1,080, 24 fps and approximately 14.93 seconds. The optimized MP4 is H.264, 1,920×1,080 at 24 fps, with the audio track removed and MP4 fast-start metadata enabled. It is not native 4K. The browser keeps the video paused and seeks its timeline from document scroll progress, so reverse scrolling reverses the footage.
+The source is 1,920×1,080, 24 fps and approximately 14.93 seconds. The processed MP4 is H.264, 1,920×1,080 at 24 fps, approximately 14.93 seconds (358 frames), approximately 25 MB, with the audio track removed and MP4 fast-start metadata enabled. It is not native 4K. The browser keeps the video paused and seeks its timeline from document scroll progress, so reverse scrolling reverses the footage.
 
 The previous procedural Three.js player, animals, companion and Herobrine scene is no longer mounted. Any characters or movement in the current background are part of the supplied footage, not independently composited website models. The older UHD WebP screenshots remain in the repository as the video poster/fallback and for asset traceability; they are no longer crossfaded as the primary world journey.
+
+
+### Watermark-removal derivative
+
+The visible Gemini sparkle overlay in the supplied gameplay clip was localized to a fixed bottom-right region and removed frame-by-frame with the LaMa inpainting model. The reconstruction is limited to the watermark mask and a small surrounding context patch. The output retains the source 1,920×1,080 frame size, 24 fps cadence, 358 frames and approximately 14.93-second duration. No image crop, geometric zoom, frame interpolation or soundtrack was added. The original supplied MP4 remains preserved outside the repository; the processed MP4 is the website delivery asset. Because inpainting synthesizes pixels under the overlay, inspect the preview on both desktop and mobile before promoting it to the production branch.

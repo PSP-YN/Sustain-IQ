@@ -84,8 +84,7 @@ The brochure does not name a registration platform or provide a registration URL
 - A persistent, full-viewport recorded Minecraft gameplay video sits behind the page.
 - Page scroll position scrubs the video timeline: scrolling down advances the footage and scrolling up reverses it.
 - The supplied source video is optimized as public/minecraft/videos/world-journey.mp4.
-- The optimized MP4 is H.264, 1,920×1,080 at 24 fps, approximately 14.9 seconds, with audio removed and fast-start metadata. It is not native 4K.
-- The original Gemini sparkle watermark is retained. Removing it would alter or crop the supplied footage; the source and web-optimized versions retain the same framing.
+- The processed MP4 is H.264, 1,920×1,080 at 24 fps, approximately 14.9 seconds (358 frames), about 25 MB, with audio removed and fast-start metadata. It is not native 4K. The visible Gemini sparkle was removed from the bottom-right corner with localized LaMa inpainting on all 358 frames; no crop, resize or frame-rate change was applied. The original user-supplied source remains preserved outside the repository.
 - The video is muted and uses a static gameplay poster while it initializes.
 
 ## Stack
