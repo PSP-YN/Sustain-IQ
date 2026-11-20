@@ -234,3 +234,13 @@ main{background:linear-gradient(180deg,rgba(8,45,35,.02),rgba(8,45,35,.06) 28%,r
 .register-note{max-width:680px;line-height:1.7}
 @media(max-width:900px){.schedule-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.selection-steps{grid-template-columns:1fr}.schedule-grid{grid-template-columns:1fr 1fr}.rubric-list{padding:16px}.rubric-row{grid-template-columns:minmax(0,1fr) 70px 28px;gap:10px;font-size:12px}.rubric-track{height:7px}.contact-grid{grid-template-columns:1fr}.schedule-item{padding:16px;min-height:140px}.schedule-item strong{font-size:10px;line-height:1.8}}
+
+/* WhatsApp feedback: clear prize tiers and organizer identification. */
+.prize-tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0 18px}
+.prize-tier{display:flex;flex-direction:column;gap:10px;padding:16px 12px;background:rgba(9,35,15,.66);border:2px solid rgba(214,238,151,.72);box-shadow:4px 4px 0 rgba(3,18,7,.42);text-align:center}
+.prize-tier span{font:10px var(--pixel);color:#d6e9a7;line-height:1.7}
+.prize-tier strong{font:clamp(15px,1.8vw,22px) var(--pixel);color:#ffe477;line-height:1.5}
+.prize-copy p{font-size:16px;line-height:1.8}
+.organizer-logo{display:flex;align-items:center;gap:14px;margin-bottom:22px;color:#f6e9b4;font:10px/1.8 var(--pixel);letter-spacing:.5px}
+.organizer-logo img{width:64px;height:64px;object-fit:contain;border:2px solid rgba(221,239,170,.75);background:rgba(255,255,255,.08);padding:3px}
+@media(max-width:640px){.prize-tiers{gap:7px}.prize-tier{padding:12px 5px}.prize-tier span{font-size:7px}.prize-tier strong{font-size:12px}.organizer-logo{font-size:8px;gap:10px}.organizer-logo img{width:54px;height:54px}}
