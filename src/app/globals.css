@@ -456,3 +456,17 @@ main{
   .hero-copy{transform:none!important}
   .domain-card,.journey-card{transition:none!important}
 }
+
+/* Final contrast and voxel-detail polish */
+.hero-copy .text-link{color:#2d7547!important;text-shadow:none!important}
+.hero-copy .text-link:hover{color:#b47712!important}
+.domain-card::after{
+  content:"";position:absolute;right:24px;top:42%;
+  width:22px;height:22px;pointer-events:none;opacity:.36;
+  background:linear-gradient(135deg,rgba(255,255,255,.95) 0 48%,rgba(64,143,67,.38) 49% 100%);
+  box-shadow:9px 9px 0 -2px rgba(42,111,56,.34),-7px 7px 0 -3px rgba(255,255,255,.62);
+  transform:translateZ(30px) rotate(45deg);
+}
+.domain-card:nth-child(2)::after{background:linear-gradient(135deg,#fff 0 48%,#3a9c91 49% 100%)}
+.domain-card:nth-child(3)::after{background:linear-gradient(135deg,#fff 0 48%,#d78b2e 49% 100%)}
+.domain-card:nth-child(4)::after{background:linear-gradient(135deg,#fff 0 48%,#8175cf 49% 100%)}
