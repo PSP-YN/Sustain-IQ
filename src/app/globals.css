@@ -702,3 +702,33 @@ main{
   .domain-card h3,.journey-card h3{font-size:15px!important}
 }
 @media(prefers-reduced-motion:reduce){.hero-copy{transform:none!important}.domain-card,.journey-card{transition:none!important}}
+
+/* Organizer feedback: clearer type, a three-column prize podium and official IVC identity. */
+.prize-tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0 8px}
+.prize-tier{display:flex;min-height:112px;flex-direction:column;justify-content:center;gap:12px;padding:18px 14px;border:1px solid rgba(239,255,227,.28);border-radius:16px;background:rgba(7,42,31,.42);backdrop-filter:blur(12px);box-shadow:0 10px 26px rgba(0,0,0,.14);text-align:center}
+.prize-tier span{font-size:11px;font-weight:800;letter-spacing:.1em;color:#e7e9ae}
+.prize-tier strong{font-size:clamp(20px,2.2vw,28px);font-weight:900;color:#fff0a2;white-space:nowrap}
+.organizer-logo{display:flex;align-items:center;gap:14px;margin:0 0 22px;color:#f4f0c5;font-size:12px;font-weight:800;letter-spacing:.09em}
+.organizer-logo img{width:64px;height:64px;object-fit:contain;border-radius:50%;border:1px solid rgba(255,255,255,.36);box-shadow:0 8px 22px rgba(0,0,0,.22)}
+/* Increase reading sizes consistently across desktop and mobile. */
+.hero-lede{font-size:clamp(17px,1.45vw,19px)!important;line-height:1.8!important}
+.intro-lede{font-size:clamp(20px,2vw,25px)!important;line-height:1.65!important}
+.muted,.section-head>p,.prize-copy p,.faq-title>p{font-size:16px!important;line-height:1.85!important}
+.domain-card p,.journey-card p,.selection-steps p,.schedule-item p,.essential p,.faq-item p{font-size:15px!important;line-height:1.85!important}
+.domain-card h3,.journey-card h3{font-size:19px!important;line-height:1.55!important}
+.selection-steps h3{font-size:17px!important;line-height:1.6!important}
+.essential h3{font-size:16px!important}
+.faq-item summary{font-size:16px!important;line-height:1.6!important}
+.rubric-row{font-size:15px!important}
+.stat small{font-size:11px!important;letter-spacing:.04em!important}
+.eyebrow,.domain-label,.journey-tag,.journey-foot,.schedule-day{font-size:10px!important;letter-spacing:.07em!important}
+.nav-links a,.nav-cta{font-size:13px!important}
+@media(max-width:640px){
+  .prize-tiers{gap:8px;margin:18px 0 6px}
+  .prize-tier{min-height:96px;padding:13px 7px;gap:9px}
+  .prize-tier span{font-size:9px!important}
+  .prize-tier strong{font-size:19px!important}
+  .organizer-logo{font-size:10px;gap:10px}
+  .organizer-logo img{width:54px;height:54px}
+  .domain-card p,.journey-card p,.selection-steps p,.schedule-item p,.essential p,.faq-item p{font-size:15px!important}
+}
