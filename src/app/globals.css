@@ -224,8 +224,8 @@ main{background:linear-gradient(180deg,rgba(8,45,35,.02),rgba(8,45,35,.06) 28%,r
 .schedule-item{min-height:155px}
 .schedule-item strong{display:block;margin-top:16px;font:14px var(--pixel);color:#fff3a0}
 .schedule-item p{font-size:13px;line-height:1.7;color:#f2fff0}
-.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:12px;margin-top:26px;max-width:650px}
-.contact-grid a{display:flex;align-items:center;gap:13px;padding:15px 17px;border:1px solid rgba(240,255,236,.58);border-radius:14px;background:rgba(5,42,33,.48);color:#fff;box-shadow:0 8px 22px rgba(0,0,0,.12)}
+.contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:26px;max-width:100%;width:100%}
+.contact-grid a{display:flex;align-items:center;gap:10px;min-width:0;padding:14px 12px;border:1px solid rgba(240,255,236,.58);border-radius:14px;background:rgba(5,42,33,.48);color:#fff;box-shadow:0 8px 22px rgba(0,0,0,.12)}
 .contact-grid a:hover{background:rgba(37,105,65,.58)}
 .contact-grid svg{flex-shrink:0;color:#f8e477}
 .contact-grid b,.contact-grid small{display:block}
@@ -241,6 +241,14 @@ main{background:linear-gradient(180deg,rgba(8,45,35,.02),rgba(8,45,35,.06) 28%,r
 .prize-tier span{font:10px var(--pixel);color:#d6e9a7;line-height:1.7}
 .prize-tier strong{font:clamp(15px,1.8vw,22px) var(--pixel);color:#ffe477;line-height:1.5}
 .prize-copy p{font-size:16px;line-height:1.8}
-.organizer-logo{display:flex;align-items:center;gap:14px;margin-bottom:22px;color:#f6e9b4;font:10px/1.8 var(--pixel);letter-spacing:.5px}
-.organizer-logo img{width:64px;height:64px;object-fit:contain;border:2px solid rgba(221,239,170,.75);background:rgba(255,255,255,.08);padding:3px}
-@media(max-width:640px){.prize-tiers{gap:7px}.prize-tier{padding:12px 5px}.prize-tier span{font-size:7px}.prize-tier strong{font-size:12px}.organizer-logo{font-size:8px;gap:10px}.organizer-logo img{width:54px;height:54px}}
+.organizer-logo{display:flex;align-items:center;justify-content:center;width:100%;margin:0 auto 22px;text-align:center}
+.organizer-logo img{width:88px;height:88px;object-fit:contain;border:2px solid rgba(221,239,170,.75);background:rgba(255,255,255,.08);padding:5px;border-radius:50%}
+@media(max-width:640px){.prize-tiers{gap:7px}.prize-tier{padding:12px 5px}.prize-tier span{font-size:7px}.prize-tier strong{font-size:12px}.organizer-logo img{width:76px;height:76px}}
+
+@media(max-width:640px){
+  .contact-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .contact-grid a{justify-content:center;gap:4px;padding:10px 4px;flex-direction:column;text-align:center}
+  .contact-grid b{font-size:clamp(7px,2vw,10px);line-height:1.5}
+  .contact-grid small{font-size:clamp(7px,1.9vw,10px);overflow-wrap:anywhere}
+  .contact-grid svg{width:14px;height:14px}
+}
