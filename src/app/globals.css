@@ -205,3 +205,32 @@ main{background:linear-gradient(180deg,rgba(8,45,35,.02),rgba(8,45,35,.06) 28%,r
 .minecraft-world-video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center center;pointer-events:none;background:#163d2b}
 .minecraft-photo-shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(4,28,20,.32),rgba(4,28,20,.10) 52%,rgba(4,28,20,.03)),linear-gradient(180deg,rgba(5,35,28,.02),rgba(4,28,22,.34))}
 @media(max-width:640px){.minecraft-world-video{object-position:center center}}
+
+/* Brochure-aligned selection, judging and schedule sections. */
+.selection-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.selection-steps article,.schedule-item{padding:23px;background:rgba(8,48,40,.48);border:1px solid rgba(238,255,240,.5);border-radius:18px;box-shadow:0 12px 30px rgba(2,25,19,.16)}
+.selection-steps b,.schedule-day{font:9px var(--pixel);line-height:1.8;color:#f6e37b}
+.selection-steps h3{font:12px/1.8 var(--pixel);color:#fff;margin:14px 0 10px}
+.selection-steps p{font-size:13px;line-height:1.75;color:#eff9e8;margin:0}
+.rubric{padding-top:100px;padding-bottom:100px;background:rgba(8,47,39,.30)}
+.rubric-list{max-width:900px;margin:0 auto;padding:28px;background:rgba(5,40,34,.62);border:1px solid rgba(235,255,237,.56);border-radius:22px;box-shadow:0 18px 45px rgba(2,25,19,.2)}
+.rubric-row{display:grid;grid-template-columns:minmax(190px,1fr) minmax(90px,1.3fr) 34px;align-items:center;gap:20px;padding:14px 0;border-bottom:1px solid rgba(235,255,237,.18);font-size:14px;color:#f6ffed}
+.rubric-row:last-child{border-bottom:0}
+.rubric-row strong{font:12px var(--pixel);color:#fff078;text-align:right}
+.rubric-track{height:9px;border-radius:20px;background:rgba(255,255,255,.16);overflow:hidden}
+.rubric-track i{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,#a6e85e,#f5dc62)}
+.schedule{padding-top:100px;padding-bottom:110px;background:rgba(6,39,36,.34)}
+.schedule-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.schedule-item{min-height:155px}
+.schedule-item strong{display:block;margin-top:16px;font:14px var(--pixel);color:#fff3a0}
+.schedule-item p{font-size:13px;line-height:1.7;color:#f2fff0}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:12px;margin-top:26px;max-width:650px}
+.contact-grid a{display:flex;align-items:center;gap:13px;padding:15px 17px;border:1px solid rgba(240,255,236,.58);border-radius:14px;background:rgba(5,42,33,.48);color:#fff;box-shadow:0 8px 22px rgba(0,0,0,.12)}
+.contact-grid a:hover{background:rgba(37,105,65,.58)}
+.contact-grid svg{flex-shrink:0;color:#f8e477}
+.contact-grid b,.contact-grid small{display:block}
+.contact-grid b{font-size:12px}
+.contact-grid small{margin-top:5px;font-size:12px;color:#e4f2d9}
+.register-note{max-width:680px;line-height:1.7}
+@media(max-width:900px){.schedule-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.selection-steps{grid-template-columns:1fr}.schedule-grid{grid-template-columns:1fr 1fr}.rubric-list{padding:16px}.rubric-row{grid-template-columns:minmax(0,1fr) 70px 28px;gap:10px;font-size:12px}.rubric-track{height:7px}.contact-grid{grid-template-columns:1fr}.schedule-item{padding:16px;min-height:140px}.schedule-item strong{font-size:10px;line-height:1.8}}
