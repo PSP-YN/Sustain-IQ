@@ -301,3 +301,55 @@ main{background:linear-gradient(180deg,rgba(8,45,35,.02),rgba(8,45,35,.06) 28%,r
   .faq-item p{font-size:13px}
   .footer-right{font-size:9px}
 }
+
+/* Hero overlap repair: let every top-of-page element take its own space. */
+.hero{height:auto!important;min-height:0!important;max-height:none!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;gap:0!important;padding:34px 5vw 0!important;overflow:visible!important}
+.hero-logo{flex:0 1 auto;max-width:460px;width:min(100%,460px);margin:0 auto 18px!important}
+.hero-copy{flex:0 1 auto;width:min(900px,100%)!important;max-width:900px;min-width:0;padding:clamp(22px,3vw,42px)!important;margin:0 auto 22px}
+.hero-kicker{display:flex;flex-wrap:wrap;white-space:normal;min-width:0;line-height:1.8;overflow-wrap:anywhere}
+.hero h1{max-width:100%;overflow-wrap:normal;word-break:normal;line-height:1.16!important;margin:22px 0!important}
+.hero-lede{max-width:60ch;line-height:1.65!important;overflow-wrap:break-word}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:24px!important;min-width:0}
+.hero-actions a{max-width:100%;min-width:0;white-space:normal;line-height:1.5}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:24px!important;line-height:1.7}
+.hero-meta span{min-width:0;white-space:normal}
+.hero-bottom{position:relative!important;inset:auto!important;width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 18px;margin-top:4px;padding:14px 0!important;line-height:1.7;white-space:normal}
+.hero-bottom span{display:inline-flex;align-items:center;gap:8px;min-width:0}
+.ticker{overflow:hidden;max-width:100%;}
+.ticker-track{width:max-content;min-width:200%;will-change:transform}
+.ticker-set{flex:0 0 auto;gap:clamp(16px,3vw,38px);padding-right:clamp(16px,3vw,38px);white-space:nowrap;line-height:1.8}
+.ticker-set span,.ticker-set b{display:inline-flex;align-items:center;flex:0 0 auto}
+.stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.stat{min-width:0;padding:0 clamp(10px,2vw,25px)}
+.stat strong{display:block;line-height:1.35;white-space:nowrap}
+.stat small{line-height:1.8;overflow-wrap:anywhere}
+@media(max-width:760px){
+ .hero{padding:24px 16px 0!important;gap:0!important}
+ .hero-logo{width:min(100%,330px);padding:0 8px;margin-bottom:12px!important}
+ .hero-copy{width:100%!important;padding:22px 18px!important;margin-bottom:14px}
+ .hero-kicker{font-size:9px!important;letter-spacing:.5px;gap:8px}
+ .hero h1{font-size:clamp(30px,8vw,48px)!important;letter-spacing:-1px!important;line-height:1.12!important;margin:18px 0!important}
+ .hero-lede{font-size:15px!important;line-height:1.65!important}
+ .hero-actions{align-items:stretch;flex-direction:column;gap:12px;margin-top:20px!important}
+ .hero-actions .btn-primary,.hero-actions .text-link{width:fit-content;max-width:100%;font-size:12px!important;padding:12px 14px;overflow-wrap:anywhere}
+ .hero-meta{font-size:10px!important;gap:8px 12px;margin-top:20px!important}
+ .hero-meta i{display:none}
+ .hero-bottom{font-size:8px!important;justify-content:space-between;gap:8px 12px;padding:12px 0!important}
+ .ticker{padding:12px 0!important}
+ .ticker-set{font-size:9px!important;gap:16px!important;padding-right:16px!important}
+ .ticker-set b{font-size:13px!important}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;row-gap:22px!important;padding:24px 18px!important}
+ .stat{padding:0 12px!important;border-right:1px solid rgba(220,255,220,.28)!important}
+ .stat:nth-child(2n){border-right:0!important}
+ .stat:nth-child(2n+1){padding-left:0!important}
+ .stat strong{font-size:clamp(24px,7vw,34px)!important;letter-spacing:-1px}
+ .stat small{font-size:8px!important;line-height:1.7}
+}
+@media(max-width:360px){
+ .hero{padding-left:12px!important;padding-right:12px!important}
+ .hero-copy{padding:19px 14px!important}
+ .hero-bottom{justify-content:flex-start}
+ .hero-bottom span{width:100%}
+ .hero-meta{font-size:9px!important}
+ .ticker-set{font-size:8px!important}
+}
