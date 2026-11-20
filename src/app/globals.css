@@ -260,3 +260,44 @@ main{background:linear-gradient(180deg,rgba(8,45,35,.02),rgba(8,45,35,.06) 28%,r
 @media(max-width:640px){.hero-logo{width:min(100%,340px);margin-bottom:12px;padding:0 14px}}
 .hero{flex-direction:column;justify-content:center}
 .hero-copy{width:min(900px,88%)}
+
+/* Readability pass: lift small supporting text without changing the visual system. */
+.nav-links{font-size:14px}
+.nav-cta{font-size:13px}
+.hero-kicker,.eyebrow{font-size:11px}
+.text-link,.under-link{font-size:14px}
+.hero-meta{font-size:12px}
+.hero-bottom{font-size:10px}
+.ticker-set{font-size:11px}
+.stat small{font-size:10px}
+.domain-label{font-size:9px}
+.domain-card p,.journey-card p,.essential p,.selection-steps p,.schedule-item p{font-size:14px}
+.journey-tag,.journey-foot,.schedule-day{font-size:9px}
+.prize-tier span{font-size:11px}
+.prize-tier strong{font-size:clamp(16px,2vw,23px)}
+.contact-grid b{font-size:13px}
+.contact-grid small{font-size:13px}
+.register-note{font-size:12px}
+.faq-item p{font-size:14px}
+.footer-right{font-size:10px}
+@media(max-width:640px){
+  .hero-kicker,.eyebrow{font-size:9px}
+  .hero-meta{font-size:9px}
+  .hero-bottom{font-size:8px}
+  .ticker-set{font-size:9px}
+  .stat small{font-size:8px}
+  .domain-label{font-size:8px}
+  .domain-card p,.journey-card p,.essential p,.selection-steps p,.schedule-item p{font-size:12px}
+  .journey-tag,.journey-foot,.schedule-day{font-size:8px}
+  .prize-tiers{grid-template-columns:1fr;gap:10px}
+  .prize-tier{min-width:0;padding:13px 12px;gap:7px}
+  .prize-tier span{font-size:9px}
+  .prize-tier strong{font-size:14px;line-height:1.4;overflow-wrap:anywhere}
+  .contact-grid{grid-template-columns:minmax(0,1fr)!important;gap:10px}
+  .contact-grid a{flex-direction:row!important;justify-content:flex-start!important;gap:12px!important;padding:13px 14px!important;text-align:left!important;min-width:0}
+  .contact-grid b{font-size:13px;line-height:1.4;overflow-wrap:anywhere}
+  .contact-grid small{font-size:13px;line-height:1.5;overflow-wrap:anywhere}
+  .contact-grid svg{width:17px;height:17px;flex-shrink:0}
+  .faq-item p{font-size:13px}
+  .footer-right{font-size:9px}
+}
