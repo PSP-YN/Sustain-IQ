@@ -252,3 +252,11 @@ main{background:linear-gradient(180deg,rgba(8,45,35,.02),rgba(8,45,35,.06) 28%,r
   .contact-grid small{font-size:clamp(7px,1.9vw,10px);overflow-wrap:anywhere}
   .contact-grid svg{width:14px;height:14px}
 }
+
+
+/* SUSTAIN-IQ brand artwork at the start of the homepage hero */
+.hero-logo{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;width:min(100%,460px);margin:0 auto 18px;padding:0 18px}
+.hero-logo img{display:block;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 12px 22px rgba(0,0,0,.22))}
+@media(max-width:640px){.hero-logo{width:min(100%,340px);margin-bottom:12px;padding:0 14px}}
+.hero{flex-direction:column;justify-content:center}
+.hero-copy{width:min(900px,88%)}
