@@ -44,8 +44,8 @@
   padding:28px 16px 0!important;
   row-gap:18px!important;
  }
- .hero-copy{grid-column:1!important;grid-row:1!important;width:100%!important;max-width:none!important}
- .hero-logo{grid-column:1!important;grid-row:2!important;width:min(100%,360px)!important;max-width:360px!important;margin:0 auto!important}
+ .hero-logo{grid-column:1!important;grid-row:1!important;width:min(100%,360px)!important;max-width:360px!important;margin:0 auto!important}
+ .hero-copy{grid-column:1!important;grid-row:2!important;width:100%!important;max-width:none!important}
  .hero-bottom{grid-column:1!important;grid-row:3!important;justify-content:space-between!important}
 }
 @media(max-width:380px){
@@ -70,7 +70,11 @@
 }
 @media(max-width:640px){
  .organizer-brand-lockup{gap:12px;margin-bottom:20px}
- .organizer-logo img{width:72px;height:72px}
+ .organizer-logo img{width:84px;height:84px}
  .partner-logo-row{gap:10px;padding:9px 12px}
  .partner-logo-row img{max-width:76px;max-height:54px}
 }
+
+/* Use the latest uploaded IVC artwork as a complete, uncropped transparent mark. */
+.organizer-logo img{width:112px!important;height:112px!important;object-fit:contain!important;border:0!important;background:transparent!important;padding:0!important;border-radius:0!important;box-shadow:none!important}
+@media(max-width:760px){.organizer-logo img{width:84px!important;height:84px!important}}
