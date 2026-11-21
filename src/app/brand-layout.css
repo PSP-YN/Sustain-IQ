@@ -54,8 +54,23 @@
  .hero-bottom{justify-content:flex-start!important}
  .hero-bottom span{width:100%}
 }
-/* Maintain accessible, descriptive logo rendering and a compact partner lockup. */
+/* Organizer identity lockup: white JPG canvases visually key out against the pale panel. */
+.organizer-brand-lockup{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(18px,3vw,34px);margin:0 0 26px}
+.organizer-logo{display:flex;align-items:center;justify-content:center}
 .organizer-logo img{object-fit:contain}
-.partner-logo-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:clamp(16px,3vw,32px);margin:0 auto 24px}
-.partner-logo-row img{display:block;max-width:clamp(72px,10vw,112px);max-height:76px;width:auto;height:auto;object-fit:contain;background:transparent}
-@media(max-width:640px){.partner-logo-row{gap:14px}.partner-logo-row img{max-width:82px;max-height:60px}}
+.partner-logo-row{
+ display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+ gap:clamp(12px,2vw,22px);padding:12px 18px;
+ background:#e9edcf;border:2px solid #c6d69b;border-radius:12px;
+ box-shadow:0 5px 0 #263f20;
+}
+.partner-logo-row img{
+ display:block;width:auto;height:auto;max-width:clamp(70px,9vw,104px);
+ max-height:68px;object-fit:contain;mix-blend-mode:multiply;
+}
+@media(max-width:640px){
+ .organizer-brand-lockup{gap:12px;margin-bottom:20px}
+ .organizer-logo img{width:72px;height:72px}
+ .partner-logo-row{gap:10px;padding:9px 12px}
+ .partner-logo-row img{max-width:76px;max-height:54px}
+}
