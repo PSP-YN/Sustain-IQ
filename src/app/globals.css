@@ -467,3 +467,25 @@ main { width: 100%; max-width: 100%; overflow-x: clip; }
   .minecraft-world-video { display: none; }
   .world-backdrop { background: #285b3a url('/minecraft/4k/jungle-uhd.webp') center / cover no-repeat; }
 }
+
+/* Final organizer logo correction: real alpha PNGs sit directly on the page.
+   No colored card, border, shadow or blend mode is placed behind either mark. */
+.partner-logo-row {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  gap: clamp(16px, 2.4vw, 28px) !important;
+}
+.partner-logo-row img {
+  mix-blend-mode: normal !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+}
+@media (max-width: 760px) {
+  .partner-logo-row { flex: 0 1 auto !important; gap: 12px !important; }
+  .partner-logo-row img { max-width: min(25vw, 84px) !important; max-height: 58px !important; }
+}
