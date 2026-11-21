@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description,
   applicationName: "SUSTAINIQ 2026",
   category: "education",
+  formatDetection: { telephone: true, email: true, address: true },
+  referrer: "origin-when-cross-origin",
   keywords: [
     "SUSTAINIQ 2026", "Sustain IQ hackathon", "Mysuru hackathon 2026",
     "VVCE hackathon", "Vidyavardhaka College of Engineering",
@@ -96,6 +98,38 @@ const eventJsonLd = {
   url: siteUrl
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": siteUrl + "/#organizer",
+  name: "Innovators & Visionaries Club (IVC), VVCE",
+  url: siteUrl,
+  email: "ivcoffical@vvce.ac.in",
+  parentOrganization: {
+    "@type": "CollegeOrUniversity",
+    name: "Vidyavardhaka College of Engineering",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Mysuru",
+      addressRegion: "Karnataka",
+      addressCountry: "IN"
+    }
+  }
+};
+
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": siteUrl + "/#webpage",
+  url: siteUrl,
+  name: title,
+  description,
+  inLanguage: "en-IN",
+  about: { "@id": siteUrl + "/#event" },
+  publisher: { "@id": siteUrl + "/#organizer" },
+  mainEntity: { "@id": siteUrl + "/#event" }
+};
+
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -104,7 +138,7 @@ const websiteJsonLd = {
   name: "SUSTAINIQ 2026",
   description,
   inLanguage: "en-IN",
-  publisher: { "@type": "Organization", name: "Innovators & Visionaries Club (IVC), VVCE" }
+  publisher: { "@id": siteUrl + "/#organizer" }
 };
 
 const faqJsonLd = {
@@ -118,7 +152,10 @@ const faqJsonLd = {
     { "@type": "Question", name: "When is the ₹999 team payment due?", acceptedAnswer: { "@type": "Answer", text: "Only shortlisted teams pay ₹999 per team after shortlisting to confirm their final-round place." } },
     { "@type": "Question", name: "When are the official problem statements released?", acceptedAnswer: { "@type": "Answer", text: "The 40 official case studies, 10 in each domain, are scheduled for release on 1 December 2026. Each problem statement has a maximum of two team slots." } },
     { "@type": "Question", name: "What is the prize pool?", acceptedAnswer: { "@type": "Answer", text: "The total prize pool is ₹60,000. Each of the four domains has ₹7,000 for first place, ₹5,000 for second place and ₹3,000 for third place." } },
-    { "@type": "Question", name: "Are food and accommodation provided?", acceptedAnswer: { "@type": "Answer", text: "Lunch, snacks, dinner, midnight snacks and breakfast are listed as provided. Accommodation and hostel facilities are not provided; participants must arrange their own stay and travel." } }
+    { "@type": "Question", name: "What are the four challenge domains?", acceptedAnswer: { "@type": "Answer", text: "AI, Data Science & Digital Innovation; IoT, Embedded Systems & Smart Technologies; Clean Energy & Sustainable Engineering; and Smart Infrastructure & Environmental Sustainability." } },
+    { "@type": "Question", name: "Are food and accommodation provided?", acceptedAnswer: { "@type": "Answer", text: "Lunch, snacks, dinner, midnight snacks and breakfast are listed as provided. Accommodation and hostel facilities are not provided; participants must arrange their own stay and travel." } },
+    { "@type": "Question", name: "What must teams submit?", acceptedAnswer: { "@type": "Answer", text: "The final submission includes the PPT, project repository, deployed link if applicable, and supporting Drive or documentation links. AI tools, APIs, libraries and pre-trained models are allowed but must be disclosed in the PPT." } },
+    { "@type": "Question", name: "Where can participants get official updates?", acceptedAnswer: { "@type": "Answer", text: "Participants should use the organizer contact details listed on the SUSTAINIQ 2026 website and follow official organizer announcements. No unconfirmed registration platform URL is published." } }
   ]
 };
 
@@ -127,7 +164,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-IN">
       <body>
         {children}
-        {[websiteJsonLd, eventJsonLd, faqJsonLd].map((schema, index) => (
+        {[websiteJsonLd, organizationJsonLd, webPageJsonLd, eventJsonLd, faqJsonLd].map((schema, index) => (
           <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         ))}
       </body>

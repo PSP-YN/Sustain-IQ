@@ -353,3 +353,117 @@ main{background:linear-gradient(180deg,rgba(8,45,35,.02),rgba(8,45,35,.06) 28%,r
  .hero-meta{font-size:9px!important}
  .ticker-set{font-size:8px!important}
 }
+
+
+/* Mobile-first stability pass: native touch scrolling, no clipped content or
+   accidental horizontal page overflow. Keep the Minecraft glass/biome identity. */
+html { scroll-padding-top: 112px; -webkit-text-size-adjust: 100%; }
+body { min-width: 320px; overflow-x: hidden; }
+main { width: 100%; max-width: 100%; overflow-x: clip; }
+.world-backdrop { position: fixed; inset: 0; height: 100vh; height: 100dvh; }
+.minecraft-world-video { width: 100%; height: 100%; object-fit: cover; }
+.nav { min-width: 0; }
+.nav-links a, .nav-cta, .brand { flex-shrink: 0; }
+.section-pad { min-width: 0; }
+.section-head > *, .intro > *, .faq > *, .prize-band > *, .register-content { min-width: 0; }
+.domain-card, .journey-card, .essential, .schedule-item, .selection-steps article,
+.faq-item, .contact-grid a { min-width: 0; overflow-wrap: anywhere; }
+.partner-logo-row img { object-fit: contain; mix-blend-mode: normal; }
+.organizer-brand-lockup {
+  display: flex; align-items: center; justify-content: flex-start;
+  flex-wrap: wrap; gap: 14px; margin: 0 0 22px; max-width: 100%;
+}
+.organizer-logo {
+  width: auto !important; margin: 0 !important; flex: 0 0 auto;
+}
+.organizer-logo img {
+  display: block; width: 82px; height: 82px; object-fit: contain;
+  border: 0; background: transparent; padding: 0; border-radius: 0;
+}
+.partner-logo-row {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 14px; max-width: 100%; padding: 10px 14px;
+  background: rgba(238, 250, 220, .94); border: 1px solid rgba(220,255,190,.9);
+  border-radius: 16px; box-shadow: 0 10px 26px rgba(0,0,0,.18);
+}
+.partner-logo-row img {
+  display: block; width: auto; height: auto; max-width: 108px; max-height: 72px;
+  object-fit: contain; mix-blend-mode: normal;
+}
+@media (max-width: 760px) {
+  html { scroll-padding-top: 112px; }
+  .nav {
+    height: auto !important; min-height: 66px; padding: 9px 14px 7px !important;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+  }
+  .nav .brand { order: 1; gap: 8px; font-size: 9px; line-height: 1.5; }
+  .nav .brand-mark { width: 32px; height: 32px; }
+  .nav-cta { order: 2; margin-left: auto; padding: 9px 10px !important; font-size: 10px !important; }
+  .nav-links {
+    order: 3; display: flex !important; flex: 0 0 100%; width: 100%;
+    gap: 18px; padding: 3px 1px 5px; overflow-x: auto; overflow-y: hidden;
+    white-space: nowrap; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    font-size: 12px !important;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .hero { padding: 22px 14px 0 !important; }
+  .hero-logo { width: min(100%, 300px) !important; }
+  .hero-copy { width: 100% !important; max-width: 100% !important; }
+  .hero h1 { font-size: clamp(29px, 8.5vw, 46px) !important; line-height: 1.18 !important; }
+  .hero-lede { font-size: 15px !important; }
+  .hero-actions { align-items: flex-start !important; }
+  .hero-actions a { width: 100%; max-width: 100%; justify-content: center; }
+  .hero-meta { flex-wrap: wrap; }
+  .hero-bottom { gap: 8px 14px; }
+  .intro, .faq { grid-template-columns: minmax(0,1fr) !important; }
+  .section-head { display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .domain-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .domain-card { padding: 14px; }
+  .journey-line { grid-template-columns: minmax(0,1fr) !important; }
+  .journey-connector { transform: rotate(90deg); }
+  .prize-band { grid-template-columns: minmax(0,1fr) !important; }
+  .essentials-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .schedule-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .contact-grid { grid-template-columns: minmax(0,1fr) !important; }
+  .register { display: block; padding: 54px 20px 170px !important; }
+  .register-content { width: 100%; max-width: 100%; }
+  .register-stamp { right: 18px; bottom: 22px; }
+  .organizer-brand-lockup { align-items: center; gap: 10px; }
+  .organizer-logo img { width: 64px; height: 64px; }
+  .partner-logo-row { flex: 1 1 210px; gap: 10px; padding: 9px 10px; }
+  .partner-logo-row img { max-width: min(28vw, 88px); max-height: 54px; }
+  .footer { gap: 12px; }
+  .footer .brand { max-width: 55%; }
+  .footer-right { flex-wrap: wrap; justify-content: flex-end; }
+}
+@media (max-width: 480px) {
+  .section-pad { padding-left: 16px !important; padding-right: 16px !important; }
+  .domain-grid, .essentials-grid, .schedule-grid { grid-template-columns: minmax(0,1fr) !important; }
+  .domain-card { min-height: 210px; }
+  .essential { min-height: 0; padding: 17px 14px; }
+  .schedule-item { min-height: 0; }
+  .prize-tiers { grid-template-columns: repeat(3,minmax(0,1fr)) !important; gap: 6px !important; }
+  .prize-tier { padding: 11px 5px !important; }
+  .prize-tier span { font-size: 7px !important; }
+  .prize-tier strong { font-size: clamp(11px,3vw,14px) !important; }
+  .register { margin: 14px 8px !important; padding: 42px 16px 155px !important; }
+  .register h2 { font-size: clamp(24px,7vw,32px) !important; overflow-wrap: anywhere; }
+  .register-stamp { width: 104px; height: 104px; }
+  .hero-bottom { justify-content: flex-start !important; }
+  .hero-bottom span { width: 100%; }
+  .footer { align-items: flex-start; }
+}
+@media (max-width: 360px) {
+  .nav { padding-inline: 10px !important; }
+  .nav .brand { font-size: 8px; }
+  .nav-cta { font-size: 9px !important; padding: 8px !important; }
+  .hero-copy { padding: 18px 14px !important; }
+  .hero h1 { font-size: 28px !important; }
+  .hero-meta { font-size: 9px !important; }
+  .prize-tiers { grid-template-columns: minmax(0,1fr) !important; }
+  .partner-logo-row img { max-width: 72px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .minecraft-world-video { display: none; }
+  .world-backdrop { background: #285b3a url('/minecraft/4k/jungle-uhd.webp') center / cover no-repeat; }
+}

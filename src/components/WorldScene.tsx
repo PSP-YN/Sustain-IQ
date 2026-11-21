@@ -14,6 +14,25 @@ export default function WorldScene() {
     let frame = 0;
     let disposed = false;
     let initialized = false;
+    const mobileMotion = window.matchMedia("(max-width: 760px), (pointer: coarse)").matches;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Mobile browsers handle a muted inline video more reliably as normal playback
+    // than as a continuously-seeked scroll timeline. Keep the world moving smoothly
+    // behind the page while the document itself retains native touch scrolling.
+    if (mobileMotion && !reducedMotion) {
+      video.loop = true;
+      video.play().catch(() => {
+        // The poster remains visible when autoplay is restricted by the browser.
+      });
+      return () => {
+        video.pause();
+      };
+    }
+    if (reducedMotion) {
+      video.pause();
+      return;
+    }
 
     const syncToScroll = () => {
       cancelAnimationFrame(frame);
@@ -58,7 +77,7 @@ export default function WorldScene() {
         poster="/minecraft/4k/jungle-uhd.webp"
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
         disablePictureInPicture
         tabIndex={-1}
       />
