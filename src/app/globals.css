@@ -489,3 +489,109 @@ main { width: 100%; max-width: 100%; overflow-x: clip; }
   .partner-logo-row { flex: 0 1 auto !important; gap: 12px !important; }
   .partner-logo-row img { max-width: min(25vw, 84px) !important; max-height: 58px !important; }
 }
+
+.register-side {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+  width: 210px;
+  margin-left: 28px;
+}
+
+.register-side .register-stamp {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 130px !important;
+  padding: 22px 16px !important;
+  transform: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(240,255,241,.68) !important;
+  background: linear-gradient(145deg, rgba(38,124,66,0.85), rgba(22,75,45,0.85)) !important;
+  box-shadow: 0 16px 36px rgba(4,31,25,0.28), inset 0 1px 0 rgba(255,255,255,0.4) !important;
+  backdrop-filter: blur(20px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+}
+
+.register-side .stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 241, 106, 0.35);
+  font: 8px var(--pixel);
+  letter-spacing: 0.5px;
+  color: #fff16a;
+}
+
+.register-side .stamp-date {
+  font: 26px/1.2 var(--pixel) !important;
+  color: #fff16a !important;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 14px rgba(255, 241, 106, 0.35);
+  margin-top: 3px;
+}
+
+.register-side .register-stamp small {
+  font: 8px/1.7 var(--pixel) !important;
+  color: #e4f6d4 !important;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.register-side .register-stamp-btn {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 13px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  white-space: nowrap !important;
+  font: 800 12px var(--pixel) !important;
+  letter-spacing: 0.5px;
+  color: #173612 !important;
+  background: linear-gradient(180deg, #fff06a, #ffc72e) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.75) !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease !important;
+}
+
+.register-side .register-stamp-btn:hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.06) !important;
+  box-shadow: 0 14px 28px rgba(245, 207, 98, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+@media (max-width: 640px) {
+  .register {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 42px 18px 48px !important;
+    gap: 28px !important;
+  }
+  .register-side {
+    margin-left: 0 !important;
+    width: 210px !important;
+    max-width: 100% !important;
+    align-items: center !important;
+  }
+  .register-side .register-stamp {
+    position: static !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+}
