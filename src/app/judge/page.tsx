@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -119,7 +120,7 @@ export default function JudgePage() {
       <nav className="nav">
         <Link href="/" className="brand">
           <span className="brand-mark">
-            <Box size={19} />
+            <Image src="/sustainiq-mark.png" alt="SUSTAINIQ logo" width={28} height={28} priority />
           </span>
           <span>
             SUSTAIN<span className="brand-accent">IQ</span>
@@ -343,7 +344,7 @@ export default function JudgePage() {
       <footer className="footer">
         <Link href="/" className="brand">
           <span className="brand-mark">
-            <Box size={18} />
+            <Image src="/sustainiq-mark.png" alt="SUSTAINIQ logo" width={26} height={26} />
           </span>
           <span>
             SUSTAIN<span className="brand-accent">IQ</span>
