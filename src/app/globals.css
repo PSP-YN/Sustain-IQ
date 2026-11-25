@@ -472,11 +472,13 @@ main { width: 100%; max-width: 100%; overflow-x: clip; }
 /* Final organizer logo correction: real alpha PNGs sit directly on the page.
    No colored card, border, shadow or blend mode is placed behind either mark. */
 .partner-logo-row {
+  display: flex !important;
+  align-items: center !important;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
   padding: 0 !important;
-  gap: clamp(16px, 2.4vw, 28px) !important;
+  gap: 20px !important;
 }
 .partner-logo-row img,
 .organizer-logo img {
@@ -486,20 +488,23 @@ main { width: 100%; max-width: 100%; overflow-x: clip; }
   box-shadow: none !important;
   padding: 0 !important;
   object-fit: contain !important;
-  width: 104px !important;
-  height: 104px !important;
-  max-width: 104px !important;
-  max-height: 104px !important;
+  width: 96px !important;
+  height: 96px !important;
+  max-width: 96px !important;
+  max-height: 96px !important;
   filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 8px rgba(255, 230, 120, 0.12)) !important;
 }
 @media (max-width: 760px) {
-  .partner-logo-row { flex: 0 1 auto !important; gap: 12px !important; }
+  .organizer-brand-lockup {
+    gap: 14px !important;
+  }
+  .partner-logo-row { flex: 0 1 auto !important; gap: 14px !important; }
   .partner-logo-row img,
   .organizer-logo img {
-    width: 80px !important;
-    height: 80px !important;
-    max-width: 80px !important;
-    max-height: 80px !important;
+    width: 76px !important;
+    height: 76px !important;
+    max-width: 76px !important;
+    max-height: 76px !important;
   }
 }
 
