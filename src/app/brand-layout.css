@@ -181,22 +181,54 @@
   }
 }
 
-/* Use the latest uploaded IVC artwork as a complete, uncropped transparent mark. */
-.organizer-logo img {
-  width: 112px !important;
-  height: 112px !important;
-  object-fit: contain !important;
-  border: 0 !important;
+/* Organizer & Institution logos: unified equal sizing, alignment and contrast */
+.organizer-brand-lockup {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 22px !important;
+  margin: 0 0 24px !important;
+}
+
+.organizer-logo,
+.partner-logo-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
   background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.organizer-logo img,
+.partner-logo-row img {
+  width: 108px !important;
+  height: 108px !important;
+  max-width: 108px !important;
+  max-height: 108px !important;
+  object-fit: contain !important;
+  display: block !important;
+  background: transparent !important;
+  border: 0 !important;
   padding: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(255, 230, 120, 0.18)) !important
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(255, 230, 120, 0.15)) !important;
 }
 
 @media(max-width:760px) {
-  .organizer-logo img {
-    width: 84px !important;
-    height: 84px !important
+  .organizer-brand-lockup {
+    gap: 16px !important;
+    margin-bottom: 20px !important;
+  }
+  .organizer-logo img,
+  .partner-logo-row img {
+    width: 82px !important;
+    height: 82px !important;
+    max-width: 82px !important;
+    max-height: 82px !important;
   }
 }

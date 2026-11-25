@@ -477,17 +477,29 @@ main { width: 100%; max-width: 100%; overflow-x: clip; }
   padding: 0 !important;
   gap: clamp(16px, 2.4vw, 28px) !important;
 }
-.partner-logo-row img {
+.partner-logo-row img,
+.organizer-logo img {
   mix-blend-mode: normal !important;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
   padding: 0 !important;
   object-fit: contain !important;
+  width: 108px !important;
+  height: 108px !important;
+  max-width: 108px !important;
+  max-height: 108px !important;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(255, 230, 120, 0.15)) !important;
 }
 @media (max-width: 760px) {
   .partner-logo-row { flex: 0 1 auto !important; gap: 12px !important; }
-  .partner-logo-row img { max-width: min(25vw, 84px) !important; max-height: 58px !important; }
+  .partner-logo-row img,
+  .organizer-logo img {
+    width: 82px !important;
+    height: 82px !important;
+    max-width: 82px !important;
+    max-height: 82px !important;
+  }
 }
 
 .register-side {
